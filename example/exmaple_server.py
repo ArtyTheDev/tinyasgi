@@ -1,14 +1,3 @@
-# TinyASGI
-A little ASGI tool-kit to help you build your framework.
-
-- Fully typed with no errors.
-- Based on PEP8 and flake8.
-- Starlette standard config.
-- Asgiref typing.
-- Support both HTTP and WebSockets.
-
-## Example
-```py
 import tinyasgi
 
 @tinyasgi.application()
@@ -30,10 +19,4 @@ async def main(request: tinyasgi.RequestType) -> tinyasgi.ResponseType:
         
     if isinstance(request, tinyasgi.Request):
         return tinyasgi.PlainTextResponse("Hello, World")
-```
-
-## Install
-- You need git to install it.
-```
-pip install git+https://github.com/ArtyTheDev/tinyasgi.git
-```
+        
