@@ -25,12 +25,18 @@ class Application(object):
             ]
         ] = DEFAULT_CORS_PARAMS,
         gzip: typing.Optional[bool] = True,
-        gzip_params: typing.Dict[str, int] = DEFAULT_GZIP_PARAMS
+        gzip_params: typing.Dict[str, int] = DEFAULT_GZIP_PARAMS,
+        support: typing.List[str] = ("http", "ws")
     ) -> None:
         self.handler = handler
+        self.support = support 
 
         async def __interal__(scope, recv, send):
             scope_type = scope['type']
+            
+            if scope_type not in self.support:
+                return
+            
             if scope_type == "http":
                 req = Request(scope, recv, send)
                 resp = await handler(req)
