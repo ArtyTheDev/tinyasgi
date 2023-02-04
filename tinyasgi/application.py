@@ -26,7 +26,7 @@ class Application(object):
         ] = DEFAULT_CORS_PARAMS,
         gzip: typing.Optional[bool] = True,
         gzip_params: typing.Dict[str, int] = DEFAULT_GZIP_PARAMS,
-        support: typing.List[str] = ("http", "ws")
+        support: typing.Tuple[str] = ("http", "ws")
     ) -> None:
         self.handler = handler
         self.support = support 
@@ -70,7 +70,8 @@ def app(
         ]
     ] = DEFAULT_CORS_PARAMS,
     gzip: typing.Optional[bool] = True,
-    gzip_params: typing.Dict[str, int] = DEFAULT_GZIP_PARAMS
+    gzip_params: typing.Dict[str, int] = DEFAULT_GZIP_PARAMS,
+    support: typing.Tuple[str] = ("http", "ws")
 ):
     """a deco to make an application."""
 
@@ -79,6 +80,7 @@ def app(
             handler=func,
             cors=cors,
             gzip=gzip,
-            gzip_params=gzip_params
+            gzip_params=gzip_params,
+            support=support
         )
     return __deco__ # noqa
