@@ -1,4 +1,4 @@
-from .application import Application, application
+from .application import Application, app
 from .wrappers import (
     Request, Response,
     PlainTextResponse, RedirectResponse,
@@ -17,7 +17,7 @@ from .asgi_types import (
 from .types import RequestType,  ResponseType
 
 __all__ = (
-    "application",
+    "app",
     "Application",
     "Request", "Response",
     "PlainTextResponse", "RedirectResponse",

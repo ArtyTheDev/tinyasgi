@@ -57,7 +57,7 @@ class Application(object):
         await self.app(scope, recv, send) # noqa
 
 
-def application(
+def app(
     cors: typing.Dict[
         str, typing.Union[
             tuple, bool
