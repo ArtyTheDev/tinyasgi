@@ -15,6 +15,7 @@ from .asgi_types import (
     ASGIApplication
 )
 from .types import RequestType,  ResponseType
+from .testclient import TestClient
 
 __all__ = (
     "app",
@@ -27,5 +28,6 @@ __all__ = (
     "WebSocketDisconnect",
     "WebSocketState",
     "Scope", "ASGIReceiveEvent", "ASGISendEvent",
-    "ASGIApplication", "RequestType", "ResponseType"
+    "ASGIApplication", "RequestType", "ResponseType",
+    "TestClient"
 ) # noqa
